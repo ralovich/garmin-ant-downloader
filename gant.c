@@ -1381,7 +1381,7 @@ int main(int ac, char *av[])
 
    if (!ANT_Init(devnum, 0))	// should be 115200 but doesn't fit into a short
    {
-      ERROR_OUT("Open dev %d failed", devnum);
+      ERROR_OUT("Open /dev/ttyUSB%d failed", devnum);
       exit(1);
    }
    ANT_ResetSystem();
