@@ -18,7 +18,7 @@
 //#include "antmessage.h"
 //#include "anttypes.h"
 
-#define S(e) if (-1 == (e)) {perror(#e);exit(1);} else
+#define S(e) if (0 != (e)) {close(fd);perror(#e);return 0;}
 
 #define MAXMSG 30 // SYNC,LEN,MSG,data[9+],CHKSUM
 #define MAXCHAN 32
@@ -427,7 +427,7 @@ ANT_Initf(char *devname, ushort baud)
 	tp.c_cc[VTIME] = 0;
 	S(tcsetattr(fd, TCSANOW, &tp));
 
-	if (pthread_create(&commthread, 0, commfn, 0));
+	S(pthread_create(&commthread, 0, commfn, 0));
 	return 1;
 }
 
