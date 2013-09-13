@@ -9,7 +9,10 @@ notifications:
   email:
     on_success: change
     on_failure: always
-
+branches:
+  only:
+    - master
+    - antpm-integration1
 before_install: sudo apt-get update && uname -a
 install: sudo apt-get install libxml2-dev
 script: make
