@@ -1,0 +1,15 @@
+language: c
+script: make
+compiler:
+  - clang
+  - gcc
+notifications:
+  recipients:
+    - tade60@freemail.hu
+  email:
+    on_success: change
+    on_failure: always
+
+before_install: sudo apt-get update && uname -a
+install: sudo apt-get install libxml2-dev
+script: make
