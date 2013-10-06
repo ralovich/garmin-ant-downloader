@@ -6,3 +6,5 @@ override_dh_install:
 %:
 	dh $@
 
+build:
+	cp garmin-ant-downloader.1 debian/
