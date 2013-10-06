@@ -819,7 +819,7 @@ uchar chevent(uchar chan, uchar event)
 {
    uchar status;
    uchar phase;
-   uint newdata;
+   /* uint newdata; */
    struct ack_msg ack;
    struct auth_msg auth;
    struct pair_msg pair;
@@ -831,7 +831,7 @@ uchar chevent(uchar chan, uchar event)
    if (event == EVENT_RX_BROADCAST)
    {
       status = cbuf[1] & 0xd7;
-      newdata = cbuf[1] & 0x20;
+      /* newdata = cbuf[1] & 0x20; */
       phase = cbuf[2];
    }
    cid = cbuf[4] + cbuf[5] * 256 + cbuf[6] * 256 * 256 + cbuf[7] * 256 * 256 * 256;
@@ -1319,7 +1319,7 @@ int main(int ac, char *av[])
    int waveform = 0x0053;	// aids search somehow
    int c;
    extern char *optarg;
-   extern int optind, opterr, optopt;
+   extern int optind;
 
    // default auth file //
    if (getenv("HOME"))
