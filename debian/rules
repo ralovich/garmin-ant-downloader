@@ -7,4 +7,5 @@ override_dh_install:
 	dh $@
 
 build:
+	cp 80-ant-stick.rules debian/garmin-ant-downloader.udev
 	cp garmin-ant-downloader.1 debian/
